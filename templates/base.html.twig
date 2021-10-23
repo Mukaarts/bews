@@ -21,20 +21,23 @@
         {% endblock %}
     </head>
     <body>
-    <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-container">
+        <nav class="uk-navbar-container" uk-navbar>
 
-        <div class="uk-navbar-left">
+            <div class="uk-navbar-left">
 
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="{{ path('home') }}">Home</a></li>
-                <li><a href="#">Consult</a></li>
-                <li><a href="{{ path('suggest') }}">Request</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="#">Consult</a></li>
+                    <li><a href="{{ path('suggest') }}">Request</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
 
-        </div>
+            </div>
 
-    </nav>
+        </nav>
         {% block body %}{% endblock %}
+    </div>
+
     </body>
 </html>
