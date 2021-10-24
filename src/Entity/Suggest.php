@@ -26,15 +26,18 @@ class Suggest
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $youtube;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private \DateTimeImmutable $createdAt;
+    #[ORM\Column]
+    private string $createdAt;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $twitter;
 
+    #[ORM\Column(type: 'integer')]
+    private int $votes;
+
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->createdAt = date_format(new \DateTimeImmutable(), 'Y-W');
     }
 
     public function getId(): ?int
@@ -102,12 +105,12 @@ class Suggest
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): string
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(string $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -125,4 +128,17 @@ class Suggest
 
         return $this;
     }
+
+
+    public function getVotes(): int
+    {
+        return $this->votes;
+    }
+
+    public function setVotes(int $votes): void
+    {
+        $this->votes = $votes;
+    }
+
+
 }
