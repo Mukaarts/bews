@@ -33,7 +33,7 @@ class Suggest
     private ?string $twitter;
 
     #[ORM\Column(type: 'integer')]
-    private int $votes;
+    private int $votes = 0;
 
     public function __construct()
     {
